@@ -16,9 +16,7 @@ const initDB = async () => {
       email VARCHAR(150) UNIQUE NOT NULL,
       password TEXT NOT NULL,
       phone VARCHAR(15) NOT NULL,
-      role VARCHAR(20) NOT NULL CHECK (role IN ('admin','customer')),
-      created_at TIMESTAMP DEFAULT NOW(),
-      updated_at TIMESTAMP DEFAULT NOW()
+      role VARCHAR(20) NOT NULL CHECK (role IN ('admin','customer'))
     );
   `);
 
