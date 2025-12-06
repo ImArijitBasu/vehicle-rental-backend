@@ -1,11 +1,15 @@
 import express, { Request, Response } from "express"
 import initDB from "./config/db";
 import config from "./config";
+import { userRoutes } from "./modules/users/user.routes";
 
 const app = express()
 app.use(express.json());
 
 initDB();
+
+//! routes for users
+app.use("/api/v1" ,userRoutes )
 
 
 app.get("/", (req: Request, res: Response) => {
