@@ -73,7 +73,7 @@ const getUserById = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: "Internal server error",
-      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+      error:error.message,
     });
   }
 };
@@ -117,7 +117,7 @@ const updateUser = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: "Internal server error",
-      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+      error:error.message,
     });
   }
 };
@@ -160,7 +160,7 @@ const deleteUser = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: "Internal server error",
-      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+      error:error.message,
     });
   }
 };

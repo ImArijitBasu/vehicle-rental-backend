@@ -17,7 +17,7 @@ const createVehicle = async (req: Request, res: Response) => {
       return res.status(400).json({
         success: false,
         message:
-          "All fields (vehicle_name, type, registration_number, daily_rent_price) are required",
+          "All fields are required",
       });
     }
 
@@ -32,7 +32,7 @@ const createVehicle = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: "Internal server error",
-      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+      error: error.message ,
     });
   }
 };
@@ -50,7 +50,7 @@ const getAllVehicles = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: "Internal server error",
-      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+      error: error.message ,
     });
   }
 };
@@ -79,7 +79,7 @@ const getVehicleById = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: "Internal server error",
-      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+      error:error.message,
     });
   }
 };
@@ -107,7 +107,7 @@ const updateVehicle = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: "Internal server error",
-      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+      error: error.message,
     });
   }
 };
@@ -135,7 +135,7 @@ const deleteVehicle = async (req: Request, res: Response) => {
     res.status(500).json({
       success: false,
       message: "Internal server error",
-      error: process.env.NODE_ENV === "development" ? error.message : undefined,
+      error:error.message,
     });
   }
 };
