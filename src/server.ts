@@ -3,6 +3,7 @@ import initDB from "./config/db";
 import config from "./config";
 import { userRoutes } from "./modules/users/user.routes";
 import { authRoutes } from "./modules/auth/auth.routes";
+import { vehicleRoutes } from "./modules/vehicles/vehicles.route";
 
 const app = express()
 app.use(express.json());
@@ -13,10 +14,10 @@ initDB();
 app.use("/api/v1" ,userRoutes )
 //! login route
 app.use("/api/v1", authRoutes)
-
-
+//! vehicle routes
+app.use("/api/v1" , vehicleRoutes)
 app.get("/", (req: Request, res: Response) => {
-    res.send("hello guys")
+    res.send("vehicle rental server")
 })
 app.use((req, res) => {
     res.status(404).json({

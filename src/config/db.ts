@@ -28,9 +28,7 @@ const initDB = async () => {
       type VARCHAR(20) NOT NULL CHECK (type IN ('car','bike','van','SUV')),
       registration_number VARCHAR(100) UNIQUE NOT NULL,
       daily_rent_price NUMERIC NOT NULL CHECK (daily_rent_price > 0),
-      availability_status VARCHAR(20) NOT NULL CHECK (availability_status IN ('available','booked')),
-      created_at TIMESTAMP DEFAULT NOW(),
-      updated_at TIMESTAMP DEFAULT NOW()
+      availability_status VARCHAR(20) NOT NULL CHECK (availability_status IN ('available','booked'))
     );
   `);
 
@@ -43,9 +41,7 @@ const initDB = async () => {
       rent_start_date DATE NOT NULL,
       rent_end_date DATE NOT NULL,
       total_price NUMERIC NOT NULL CHECK (total_price >= 0),
-      status VARCHAR(20) NOT NULL CHECK (status IN ('active','cancelled','returned')),
-      created_at TIMESTAMP DEFAULT NOW(),
-      updated_at TIMESTAMP DEFAULT NOW(),
+      status VARCHAR(20) NOT NULL CHECK (status IN ('active','cancelled','returned'))
       CONSTRAINT rent_date_check CHECK (rent_end_date > rent_start_date)
     );
   `);
